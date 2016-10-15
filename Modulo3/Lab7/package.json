@@ -1,0 +1,16 @@
+{
+  "name": "lab7",
+  "version": "0.1.0",
+  "description": "Prueba clases",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Prueba",
+    "Clases",
+    "typescript"
+  ],
+  "author": "German Gracia",
+  "license": "MIT"
+}
