@@ -1,0 +1,49 @@
+<h1>{{ title }}</h1>
+<ul>
+    <li *ngFor="let product of products" (click)="onSelect(product)">
+        <span>{{product.id}}</span> {{product.name | uppercase }} 
+    </li>
+</ul>
+
+<div *ngIf="selected">
+<hr />
+    <label>Name: </label><br />
+    <input [(ngModel)]="selected.name" placeholder="name"><br />
+    <label>Description: </label><br />
+    <textarea [(ngModel)]="selected.description" placeholder="description"></textarea><br />
+    <label>Type: </label><br />
+    <input [(ngModel)]="selected.type" placeholder="tipo"><br />
+    <label>Price: </label><br />
+    <input [(ngModel)]="selected.price" placeholder="precio"><br />
+    <label>Quantity: </label><br />
+    <input [(ngModel)]="selected.quantity" placeholder="cantidad"><br />
+</div>
+
+
+
+<!-- <h1>{{product.id}}</h1><br />
+<h2>{{product.name}}</h2><br /> 
+<h2>{{product.description}}</h2><br />
+<h2>{{product.type}}</h2><br /> 
+<h2>{{product.price}}</h2><br />
+<h2>{{product.quantity}}</h2><br />
+<div>
+	<hr/>
+	<label for="name">Name:</label>
+	<input type="text" [(ngModel)]="product.name" placeholder="name">
+
+	<label for="description">description:</label>
+	<textarea [(ngModel)]="product.description"></textarea>  >
+
+	<label for="type">type:</label>
+	<input type="text" [(ngModel)]="product.type" placeholder="type">
+
+	<label for="price">price:</label>
+	<input type="text" [(ngModel)]="product.price" placeholder="price">
+
+	<label for="quantity">quantity:</label>
+	<input type="text" [(ngModel)]="product.quantity" placeholder="quantity">
+</div>
+ -->
+
+

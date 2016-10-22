@@ -1,0 +1,22 @@
+<h1>Taximetro</h1>
+<ul>
+    <li *ngFor="let product of products" (click)="onSelect(product)">
+        <span>{{product.id}}</span> {{product.name | uppercase }} 
+    </li>
+</ul>
+<hr />
+    <label>Unidades: </label><br />
+    <input [(ngModel)]="ride.units"><br />
+    <label>Festivos (1900): </label><br />
+    <textarea [(ngModel)]="ride.festive"></textarea><br />
+    <label>Airport (3900): </label><br />
+    <input [(ngModel)]="ride.airport"><br />
+    <label>App (700): </label><br />
+    <input [(ngModel)]="ride.app"><br />
+    <label>Total: {{ ride.units < 50 ? 
+                     (ride.default * 1) + (ride.app * 1) + (ride.airport * 1) + (ride.festive * 1) : 
+                     (ride.units * valorUnidad) + (ride.app * 1) + (ride.airport * 1) + (ride.festive * 1)}}</label><br />
+  
+
+
+

@@ -1,0 +1,11 @@
+<div *ngIf="student">
+    <label>Name: </label>
+    <span>{{student.name}}</span><br>
+    <label>Grade: </label>
+    <span style="font-weight:bold">{{student.grade}}</span><br>
+    <hr>
+    <label style="font-weight:bold">Clases: </label>
+        <div *ngFor="let classes of student.classes">
+            <span>{{classes}}</span>
+        </div>
+</div>

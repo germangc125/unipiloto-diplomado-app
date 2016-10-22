@@ -1,0 +1,13 @@
+<div *ngIf="teacher">
+    <label>Name: </label>
+    <span>{{teacher.name}}</span><br>
+    <label style="font-weight:bold">Rooms: </label>
+    <div *ngFor="let room of teacher.rooms">
+        <span>{{room}}</span>
+    </div>
+    <label style="font-weight:bold">Studies: </label>
+    <div *ngFor="let studie of teacher.studies">
+        <span>{{studie}}</span>
+    </div>
+
+</div>
