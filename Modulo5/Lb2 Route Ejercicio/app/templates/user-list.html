@@ -5,8 +5,9 @@
     </li>
 </ul>
 
-<div *ngIf="user">
-    {{user.name}} - 
-    <label>{{user.phone}}</label>
+<div *ngIf="userSelected">
+    {{userSelected.name}} - 
+    <label>{{userSelected.phone}}</label>
+    <input type="button" value="Detalle" (click)="goToDetail()">
 </div>
 

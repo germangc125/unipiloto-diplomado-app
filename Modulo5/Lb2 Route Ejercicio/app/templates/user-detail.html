@@ -1,0 +1,8 @@
+<h1>{{ title }}</h1>
+<div *ngIf="user">
+    <hr />
+    <label>Name: </label><br />
+    <input [(ngModel)]="user.name"><br />
+    <label>Phone: </label><br />
+    <textarea [(ngModel)]="user.phone"></textarea><br />
+</div>

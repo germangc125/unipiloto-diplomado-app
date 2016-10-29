@@ -1,0 +1,29 @@
+<h1>{{title}}</h1>
+<table class="table">
+<thead>
+    <tr>
+        <th>id</th>
+           <th>Customer Id</th>
+              <th>Invoice Amount</th>
+                 <th>tax</th>
+    </tr>
+</thead>
+<tbody>
+        <tr *ngFor="let saleInvoice of salesInvoice">
+            <td style="border-right:1px solid black">
+                {{saleInvoice.Id}}
+                <input type="button" value="Ver det. factura">
+            </td>
+         <td style="border-right:1px solid black">
+                {{saleInvoice.CustomerId}}
+                <input type="button" value="Ver det. cliente" (click)="gotoDetailCustomer(saleInvoice.CustomerId)">
+            </td>
+               <td style="border-right:1px solid black">
+                    {{saleInvoice.InvoiceAmount}}
+            </td>
+                <td style="border-right:1px solid black">
+                    {{saleInvoice.tax}} 
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -9,22 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var user_mock_1 = require('../mock/user-mock');
 var user_service_1 = require('../service/user.service');
+var router_1 = require("@angular/router");
 var userListComponent = (function () {
-    function userListComponent(userservice) {
+    function userListComponent(router, userservice) {
+        this.router = router;
         this.userservice = userservice;
         this.title = "Usuarios";
-        this.users = user_mock_1.USERS;
     }
     userListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.userservice.getUsers()
-            .then(function (productos) { return _this.users = productos; })
+            .then(function (usuarios) { return _this.users = usuarios; })
             .catch(function (error) { return console.log(error); });
     };
     userListComponent.prototype.onSelectUser = function (user) {
-        this.user = user;
+        this.userSelected = user;
+    };
+    userListComponent.prototype.goToDetail = function () {
+        this.router.navigate(['user/detail/', this.userSelected.id]);
     };
     userListComponent = __decorate([
         core_1.Component({
@@ -32,7 +35,7 @@ var userListComponent = (function () {
             templateUrl: 'app/templates/user-list.html',
             providers: [user_service_1.userService]
         }), 
-        __metadata('design:paramtypes', [user_service_1.userService])
+        __metadata('design:paramtypes', [router_1.Router, user_service_1.userService])
     ], userListComponent);
     return userListComponent;
 }());

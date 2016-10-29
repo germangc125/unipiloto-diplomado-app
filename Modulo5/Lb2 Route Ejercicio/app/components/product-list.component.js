@@ -10,8 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var product_service_1 = require('../service/product.service');
+var router_1 = require("@angular/router");
 var productListComponent = (function () {
-    function productListComponent(productService) {
+    function productListComponent(router, productService) {
+        this.router = router;
         this.productService = productService;
         this.title = "Productos";
     }
@@ -22,7 +24,10 @@ var productListComponent = (function () {
             .catch(function (error) { return console.log(error); });
     };
     productListComponent.prototype.onSelectProduct = function (product) {
-        this.product = product;
+        this.productSelected = product;
+    };
+    productListComponent.prototype.goToDetail = function () {
+        this.router.navigate(['product/detail/', this.productSelected.id]);
     };
     productListComponent = __decorate([
         core_1.Component({
@@ -30,7 +35,7 @@ var productListComponent = (function () {
             templateUrl: 'app/templates/product-list.html',
             providers: [product_service_1.ProductService]
         }), 
-        __metadata('design:paramtypes', [product_service_1.ProductService])
+        __metadata('design:paramtypes', [router_1.Router, product_service_1.ProductService])
     ], productListComponent);
     return productListComponent;
 }());

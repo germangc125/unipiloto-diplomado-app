@@ -16,6 +16,10 @@ var ProductService = (function () {
     ProductService.prototype.getProducts = function () {
         return Promise.resolve(product_mock_1.PRODUCTS);
     };
+    ProductService.prototype.getProduct = function (id) {
+        return this.getProducts()
+            .then(function (products) { return products.find(function (product) { return product.id === id; }); });
+    };
     ProductService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

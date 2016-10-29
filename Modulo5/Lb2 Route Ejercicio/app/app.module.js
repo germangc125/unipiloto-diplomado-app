@@ -15,6 +15,8 @@ var app_component_1 = require('./components/app.component');
 var app_routing_module_1 = require("./routing/app-routing.module");
 var product_list_component_1 = require("./components/product-list.component");
 var user_list_component_1 = require("./components/user-list.component");
+var product_detail_component_1 = require("./components/product-detail.component");
+var user_detail_component_1 = require("./components/user-detail.component");
 var common_1 = require("@angular/common");
 var AppModule = (function () {
     function AppModule() {
@@ -30,6 +32,8 @@ var AppModule = (function () {
                 app_component_1.AppComponent,
                 product_list_component_1.productListComponent,
                 user_list_component_1.userListComponent,
+                product_detail_component_1.productDetailComponent,
+                user_detail_component_1.userDetailComponent
             ],
             providers: [
                 {

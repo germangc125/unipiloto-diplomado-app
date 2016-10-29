@@ -5,8 +5,9 @@
     </li>
 </ul>
 
-<div *ngIf="product">
-    {{product.name}} - 
-    <label>{{product.description}}</label>
+<div *ngIf="productSelected">
+    {{productSelected.name}} - 
+    <label>{{productSelected.description}}</label>
+    <input type="button" value="Detalle" (click)="goToDetail()">
 </div>
 

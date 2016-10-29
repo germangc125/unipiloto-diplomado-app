@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
-import {USERS} from '../mock/user-mock';
 import {User} from '../model/user';
 import {userService} from '../service/user.service';
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'user-list',
@@ -9,20 +9,20 @@ import {userService} from '../service/user.service';
     providers: [userService]
 })
 export class userListComponent {
-  constructor(private userservice: userService){}
-
-
+  constructor(private router: Router,private userservice: userService){}
     title: string = "Usuarios";
-    users:User[] = USERS;
-    user:User;
+    users:User[];
+    userSelected:User;
 
   ngOnInit(){
 		this.userservice.getUsers()
-		.then(productos => this.users = productos)
+		.then(usuarios => this.users = usuarios)
 		.catch(error => console.log(error));
 	}
   onSelectUser(user:User){
-    this.user = user; 
+    this.userSelected = user; 
   }
-
+   goToDetail(){
+    this.router.navigate(['user/detail/', this.userSelected.id]);
+  }
 }
