@@ -16,8 +16,8 @@ var ProductDetailComponent = (function () {
         this.productService = productService;
     }
     ProductDetailComponent.prototype.save = function () {
-        //   this.productService.update(this.product)
-        //     .then((response) => console.log(response));
+        this.productService.update(this.product)
+            .subscribe(function (response) { console.log(response); }, function (err) { console.log(err); });
     };
     __decorate([
         core_1.Input(), 

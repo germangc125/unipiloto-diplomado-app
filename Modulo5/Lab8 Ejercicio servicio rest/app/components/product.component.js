@@ -14,6 +14,14 @@ var productComponent = (function () {
     function productComponent(productService) {
         this.productService = productService;
         this.titulo = "Modulo Productos";
+        this.product = {
+            id: 0,
+            name: "",
+            type: "",
+            quantity: 0,
+            price: 0,
+            url: "",
+        };
     }
     productComponent.prototype.onSelect = function (product) {
         this.selected = product;
@@ -25,6 +33,17 @@ var productComponent = (function () {
             _this.products = products;
         }, function (error) {
             console.log(error);
+        });
+    };
+    productComponent.prototype.add = function (product) {
+        var _this = this;
+        if (!product.name) {
+            return;
+        }
+        this.productService.create(product)
+            .subscribe(function (product) {
+            _this.products.push(product);
+            _this.selected = null;
         });
     };
     productComponent.prototype.ngOnInit = function () {

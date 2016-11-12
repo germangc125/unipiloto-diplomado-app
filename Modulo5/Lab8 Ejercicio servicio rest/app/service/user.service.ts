@@ -7,13 +7,13 @@ import {Observable} from 'rxjs/Rx';
 @Injectable()
 export class userService {
 
-    private userURI = 'http://138.68.0.83:7070/api/v1/user/list ';
+    private userURI = 'http://138.68.0.83:7070/api/v1/user';
     private headers = new Headers({'Content-Type': 'application/json'});
 
     constructor(private http: Http) { }
 
     getUsers(): Observable<User[]> {
-        return this.http.get(this.userURI)
+        return this.http.get(this.userURI + "/list")
             .map(response => response.json() as User[])
             .catch(this.handleError);
     }

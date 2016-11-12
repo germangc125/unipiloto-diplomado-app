@@ -1,11 +1,16 @@
 <h1>{{titulo}}</h1>
-
+<div>
+    <label>Product name:</label>  <input [(ngModel)]="product.name"/><br>
+    <label>Product Type:</label>  <input [(ngModel)]="product.type"/><br>
+    <label>Quantity:</label>  <input [(ngModel)]="product.quantity"/><br>
+    <label>Price:</label>  <input [(ngModel)]="product.price"/><br>
+    <button (click)="add(product);">
+        Add
+    </button>
+</div>
 <ul>
     <li *ngFor="let product of products"  (click)="onSelect(product)">
         <span>{{product.id}}</span> {{product.name}}
     </li>
 </ul>
-
 <product-detail [product]="selected"></product-detail>
-
-

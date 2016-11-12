@@ -13,8 +13,16 @@ titulo:string = "Modulo Productos";
     products: Product[];
     selected:Product;
     
-    constructor(private productService: ProductService) {
+    product:Product= {
+                id:0,
+                name:"",
+                type:"",
+                quantity:0,
+                price:0,
+                url:"",
+            };
 
+    constructor(private productService: ProductService) {
     }
 
     onSelect(product: Product){
@@ -32,6 +40,14 @@ titulo:string = "Modulo Productos";
                 console.log(error);
             }
         );
+    }
+    add(product: Product): void {
+        if (!product.name) { return; }
+        this.productService.create(product)
+            .subscribe(product => {
+                this.products.push(product);
+                this.selected = null;
+            });
     }
 
     ngOnInit(): void {

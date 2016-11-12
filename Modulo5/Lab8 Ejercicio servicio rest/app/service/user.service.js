@@ -15,11 +15,11 @@ var Rx_1 = require('rxjs/Rx');
 var userService = (function () {
     function userService(http) {
         this.http = http;
-        this.userURI = 'http://138.68.0.83:7070/api/v1/user/list ';
+        this.userURI = 'http://138.68.0.83:7070/api/v1/user';
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
     }
     userService.prototype.getUsers = function () {
-        return this.http.get(this.userURI)
+        return this.http.get(this.userURI + "/list")
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };

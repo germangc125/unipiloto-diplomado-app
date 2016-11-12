@@ -15,12 +15,27 @@ var Rx_1 = require('rxjs/Rx');
 var ProductService = (function () {
     function ProductService(http) {
         this.http = http;
-        this.productsURI = 'http://138.68.0.83:7070/api/v1/product/list';
+        this.productsURI = 'http://138.68.0.83:7070/api/v1/product';
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
     }
     ProductService.prototype.getProducts = function () {
-        return this.http.get(this.productsURI)
+        return this.http.get(this.productsURI + "/list")
             .map(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    ProductService.prototype.update = function (product) {
+        var url = (this.productsURI + "/update") + "/" + product.id;
+        return this.http
+            .put(url, JSON.stringify(product), { headers: this.headers })
+            .map(function () { return product; })
+            .catch(this.handleError);
+    };
+    ProductService.prototype.create = function (product) {
+        var param = JSON.stringify(product);
+        var url = this.productsURI + "/create";
+        return this.http
+            .post(url, param, { headers: this.headers })
+            .map(function (res) { return res.json(); })
             .catch(this.handleError);
     };
     ProductService.prototype.handleError = function (error) {
