@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-
-import { NavController } from 'ionic-angular';
+import {Product} from "../../Model/product"
+import {NavController} from 'ionic-angular';
+import {ListPage} from "../list/list";
 
 @Component({
   selector: 'page-home',
@@ -8,8 +9,25 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
-    
+  constructor(public navCtrl: NavController) {}
+
+   selected:any = false;
+
+   product:Product = {
+    id:1,
+    name:"Samsumb",
+    description:"",
+    type:"",
+    quantity:52,
+    price:85,
+  };
+
+  loadInfo() {
+  	this.selected = true;
+  }
+
+  iraList(){
+    this.navCtrl.push(ListPage);
   }
 
 }
