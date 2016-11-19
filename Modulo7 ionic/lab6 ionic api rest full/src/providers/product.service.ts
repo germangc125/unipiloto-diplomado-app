@@ -40,5 +40,5 @@ export class ProductService {
         console.error('An error occurred', error); // for demo purposes only
         return Observable.throw(error.message || error);
     }
-
+    
 }

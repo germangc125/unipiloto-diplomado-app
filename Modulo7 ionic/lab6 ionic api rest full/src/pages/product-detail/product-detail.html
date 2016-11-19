@@ -15,10 +15,17 @@
 
 <ion-content padding>
  <h1>Producto</h1>
-
   <br>
-Id: {{product.id}} <br>
-Name: {{product.name}}<br>
-Type: {{product.type}}<br>
-quantity:{{product.quantity}}<br>
+       Id: {{product.id}} <br>
+    <label>Name: </label><br />
+    <input [(ngModel)]="product.name" placeholder="name"><br />
+    <label>Description: </label><br />
+    <textarea [(ngModel)]="product.description" placeholder="description"></textarea><br />
+    <label>Type: </label><br />
+    <input [(ngModel)]="product.type" placeholder="tipo"><br />
+    <label>Price: </label><br />
+    <input [(ngModel)]="product.price" placeholder="precio"><br />
+    <label>Quantity: </label><br />
+    <input [(ngModel)]="product.quantity" placeholder="cantidad"><br />
+    <button (click)="save()">Save</button>
 </ion-content>

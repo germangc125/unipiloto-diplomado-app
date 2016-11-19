@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Usuarios
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <button ion-button color="light"  [navPush]="pushPage">Nuevo usuario</button><br/><br/>
+    <ion-item *ngFor="let user of users" (click)="userSelecionado(user)">
+          {{user.firstname}}
+    </ion-item>
+</ion-content>

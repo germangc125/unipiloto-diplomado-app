@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import {Product} from "../../Model/product"
 import {NavController} from 'ionic-angular';
 import {ListPage} from "../list/list";
+import {NuevoProductoPage} from "../nuevo-producto/nuevo-producto";
+
+
 
 @Component({
   selector: 'page-home',
@@ -30,4 +33,7 @@ export class HomePage {
     this.navCtrl.push(ListPage);
   }
 
+  iraNuevoProducto(){
+    this.navCtrl.push(NuevoProductoPage);
+  }
 }

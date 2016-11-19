@@ -4,14 +4,15 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ProductDetailPage } from '../pages/product-detail/product-detail';
-
+import {NuevoProductoPage} from "../pages//nuevo-producto/nuevo-producto";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
   ListPage,
-  ProductDetailPage
+  ProductDetailPage,
+  NuevoProductoPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -21,7 +22,8 @@ import { ProductDetailPage } from '../pages/product-detail/product-detail';
     MyApp,
     HomePage,
       ListPage,
-      ProductDetailPage
+      ProductDetailPage,
+      NuevoProductoPage
    
   ],
   providers: []

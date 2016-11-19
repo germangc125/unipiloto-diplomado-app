@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Productos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+ <button ion-button color="light"   (click)="nuevoProducto()">Nuevo producto</button><br/><br/>
+    <ion-item *ngFor="let product of products" (click)="productSelecionado(product)">
+          {{product.name}}
+    </ion-item>
+</ion-content>
